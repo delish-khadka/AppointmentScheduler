@@ -18,7 +18,7 @@ namespace AppointmentScheduler.Utility
             {
                 new SelectListItem{Value=Helper.Admin,Text=Helper.Admin},
                 new SelectListItem{Value=Helper.Patient,Text=Helper.Patient},
-                new SelectListItem{Value=Helper.Doctor,Text=Helper.Doctor}
+                new SelectListItem{Value=Helper.Doctor,Text=Helper.Doctor} 
             };
 
         }

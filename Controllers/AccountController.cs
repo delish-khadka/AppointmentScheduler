@@ -40,11 +40,11 @@ namespace AppointmentScheduler.Controllers
                 var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe,false);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Appointment");
                 }
                 ModelState.AddModelError("", "Invalid login attempt");
             }
-            return View();
+            return View(model);
         }
 
         //GET REGISTER
@@ -71,6 +71,7 @@ namespace AppointmentScheduler.Controllers
                     Email = model.Email,
                     Name = model.Name
                 };
+
                 var result = await _userManager.CreateAsync(user,model.Password);
                 if (result.Succeeded)
                 {
@@ -83,7 +84,7 @@ namespace AppointmentScheduler.Controllers
                     ModelState.AddModelError("", error.Description);
                 }
             }
-            return View();
+            return View(model);
         }
 
         [HttpPost]
@@ -92,7 +93,7 @@ namespace AppointmentScheduler.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Login","Account");
         }
-
+         
 
     }
 }

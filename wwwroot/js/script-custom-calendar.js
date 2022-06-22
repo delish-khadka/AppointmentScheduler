@@ -13,11 +13,17 @@ function InitializeCalendar() {
             },
             selectable: true,
             editable: false,
-
+            select: function (event) {
+                onShowModal(event, null);
+            }
 
         })
     }
     catch (e) {
         alert(e);
     }
+}
+
+function onShowModal(obj, isEventDetail) {
+    $("#appointmentInput").modal("show");
 }

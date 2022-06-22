@@ -3,9 +3,11 @@
         @if (User.IsInRole(AppointmentScheduler.Utility.Helper.Admin)) {
             <div class="form-group row col-2" id="divDoctorList">
                 <label>Select doctor</label>
-                @Html.DropDownList("doctorId", new SelectList(ViewBag.DoctorList, "Id","Name"), new { @class = "form-control select2" })"
+                @Html.DropDownList("doctorId", new SelectList(ViewBag.DoctorList, "Id","Name"), new { @class = "form-control select2" })
             </div> 
         }
         <div id="calendar"></div>
     </div>
 </div>
+
+<partial name="_AddEditAppointment" />

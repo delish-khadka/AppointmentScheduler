@@ -5,13 +5,14 @@
 function InitializeCalendar() {
     try {
         
-            var calendarEl = document.getElementById('calendar');
+        var calendarEl = document.getElementById('calendar');
+        if (calendarEl != null) {
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'dayGridMonth',
-                headerToolbar: { 
+                headerToolbar: {
                     left: 'prev,next,today',
                     center: 'title',
-                    right: 'month,agendaWeek,agendaDay'
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
                 },
                 selectable: true,
                 editable: false,
@@ -20,6 +21,7 @@ function InitializeCalendar() {
                 }
             });
             calendar.render();
+        }
     }
     catch (e) {
         alert(e);

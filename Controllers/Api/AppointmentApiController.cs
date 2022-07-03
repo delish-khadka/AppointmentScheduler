@@ -29,27 +29,28 @@ namespace AppointmentScheduler.Controllers.Api
         }
 
         [HttpPost]
-        [Route("SaveCalendarData ")]
-        public IActionResult SaveCalendarData (AppointmentVM data)
+        [Route("SaveCalendarData")]
+        public IActionResult SaveCalendarData(AppointmentVM data)
         {
             CommonResponse<int> commonResponse = new CommonResponse<int>();
             try
             {
                 commonResponse.status = _appointmentService.AddUpdate(data).Result;
-                if(commonResponse.status == 1)
+                if (commonResponse.status == 1)
                 {
                     commonResponse.message = Helper.appointmentUpdated;
                 }
-                if(commonResponse.status == 2)
+                if (commonResponse.status == 2)
                 {
                     commonResponse.message = Helper.appointmentAdded;
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 commonResponse.message = e.Message;
                 commonResponse.status = Helper.failure_code;
             }
+
             return Ok(commonResponse);
         }
     }

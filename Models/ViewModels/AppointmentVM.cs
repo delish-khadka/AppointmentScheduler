@@ -16,6 +16,7 @@ namespace AppointmentScheduler.Models.ViewModels
         public string DoctorId { get; set; }
         public string PatientId { get; set; }
         public bool IsDoctorApproved { get; set; }
+
         public string AdminId { get; set; }
         public string DoctorName { get; set; }
         public string PatientName { get; set; }

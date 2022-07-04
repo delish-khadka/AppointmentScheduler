@@ -48,7 +48,7 @@ function onSubmitForm() {
         Title: $("#title").val(),
         Description: $("#description ").val(),
         StartDate: $("#appointmentDate").val(),
-        Duration: $("#duration").val(),
+        Duration: $("#duration").val(), 
         DoctorId: $("#doctorId").val(),
         PatientId: $("#patientId").val(),
     };
@@ -59,7 +59,7 @@ function onSubmitForm() {
         data: JSON.stringify(requestData),
         contentType: 'application/json',
         success: function (response) {
-            if (response.status == 1) {
+            if (response.status === 1 || response.status === 2) {
                 $.notify(response.message, "success");
                 onCloseModal();
             }
@@ -68,7 +68,7 @@ function onSubmitForm() {
             }
         },
         error: function (xhr) {
-            $.notify("Error","error")
+            $.notify("Error", "error")
         }
-    })
+    });
 }

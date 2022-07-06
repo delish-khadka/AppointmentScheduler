@@ -57,7 +57,7 @@ namespace AppointmentScheduler.Controllers.Api
 
         [HttpGet]
         [Route("GetCalendarData")]
-        public IActionResult getCalendarData(string doctorId)
+        public IActionResult GetCalendarData(string doctorId)
         {
             CommonResponse<List<AppointmentVM>> commonResponse = new CommonResponse<List<AppointmentVM>>();
             try
@@ -74,7 +74,7 @@ namespace AppointmentScheduler.Controllers.Api
                 }
                 else
                 {
-                    commonResponse.dataenum = _appointmentService.DoctorsEventsById(loginUserId);
+                    commonResponse.dataenum = _appointmentService.DoctorsEventsById(doctorId);
                     commonResponse.status = Helper.success_code;
                 }
             }

@@ -105,6 +105,5 @@ namespace AppointmentScheduler.Services
                 IsDoctorApproved = c.IsDoctorApproved
             }).ToList();
         }
-    }
-    }
+    }   
 }

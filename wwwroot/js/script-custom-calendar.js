@@ -86,7 +86,14 @@ function onShowModal(obj, isEventDetail) {
 }
 
 function onCloseModal() {
+    $("#appointmentForm")[0].reset();
+    $("#id").val(0);
     $("#appointmentInput").modal("hide");
+    $("#title").val('');
+    $("#description").val('');
+    $("#appointmentDate").val('');
+    $("#duration").val('');
+    $("#patientId").val('');
 }
 
 function onSubmitForm() {
@@ -108,6 +115,7 @@ function onSubmitForm() {
             contentType: 'application/json',
             success: function (response) {
                 if (response.status === 1 || response.status === 2) {
+                    calendar.refetchEvents();
                     $.notify(response.message, "success");
                     onCloseModal();
                 }

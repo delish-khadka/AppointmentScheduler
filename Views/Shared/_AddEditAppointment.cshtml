@@ -1,16 +1,16 @@
 ﻿<div class="modal fade" role="dialog" id="appointmentInput" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form id="apointmentForm" autocomplete="off" novalidate="novalidate">
+            <form id="appointmentForm" autocomplete="off" novalidate="novalidate">
                 <div class="modal-header">
                     @if (User.IsInRole(AppointmentScheduler.Utility.Helper.Admin))
                     {
                         <h4 class="modal-title">Add/Edit Appointment</h4>
                     }
-            else
-            {
-                <h4 class="modal-title">Appointment Details</h4>
-            }
+                    else
+                    {
+                        <h4 class="modal-title">Appointment Details</h4>
+                    }
 
                 </div>
                 <div class="modal-body">
@@ -35,22 +35,22 @@
                         {
                             <div class="form-group">
                                 <label for="lblPatientName">Patient Name</label>
-                                <input type="text" class="form-control" disabled id="lblPatientName" />
+                                <label class="form-control" disabled id="lblPatientName" />
                             </div>
                             <div class="form-group">
                                 <label for="lblStatus">Status</label>
-                                <input type="text" class="form-control" disabled id="lblStatus" />
+                                <label class="form-control" disabled id="lblStatus" />
                             </div>
                         }
                         @if (User.IsInRole(AppointmentScheduler.Utility.Helper.Patient))
                         {
                             <div class="form-group">
                                 <label for="lblDoctorName">Doctor Name</label>
-                                <input type="text" class="form-control" disabled id="lblDoctorName" />
+                                <label class="form-control" disabled id="lblDoctorName" />
                             </div>
                             <div class="form-group">
                                 <label for="lblStatus">Status</label>
-                                <input type="text" class="form-control" disabled id="lblStatus" />
+                                <label class="form-control" disabled id="lblStatus" />
                             </div>
                         }
                     }

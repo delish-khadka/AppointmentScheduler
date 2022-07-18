@@ -81,27 +81,31 @@ function onShowModal(obj, isEventDetail) {
         $("#lblDoctorName").html(obj.doctorName);
         if (obj.isDoctorApproved) {
             $("#lblStatus").html('Approved');
+            $("#btnConfirm").addClass("d-none");
+            $("#btnSubmit").addClass("d-none");
         }
         else {
             $("#lblStatus").html('Pending');
+            $("#btnConfirm").removeClass("d-none");
+            $("#btnSubmit").removeClass("d-none");
         }
+        $("#btnDelete").removeClass("d-none");
     }
     else {
         $("#appointmentDate").val(obj.startStr + " " + new moment().format("hh:mm A"));
         $("#id").val(0);
+        $("#btnDelete").addClass("d-none");
+        $("#btnSubmit").removeClass("d-none");
     }
     $("#appointmentInput").modal("show");
 }
   
-function onCloseModal() {
+function onCloseModal() { 
     $("#appointmentForm")[0].reset();
     $("#id").val(0);
-    
     $("#title").val('');
     $("#description").val('');
     $("#appointmentDate").val('');
-    $("#duration").val('');
-    $("#patientId").val('');
     $("#appointmentInput").modal("hide");
 }
 
